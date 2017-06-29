@@ -4,10 +4,10 @@
 #include "si.h"
 
 #include <cstdint>
+#include <string>
 
 struct Structure {
-    const char* start;
-    size_t length;
+    std::string s;
 
     union {
         TwoChars tc;
@@ -17,8 +17,8 @@ struct Structure {
         Global global;
     };
 
-    //~Structure();
-    //Structure() = default;
+    ~Structure() {}
+    Structure() { ZeroMemory(*this); }
     //Structure(Structure& src);
     //static Structure& make();
 

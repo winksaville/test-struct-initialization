@@ -31,8 +31,8 @@ void Structure::display() {
     //assert(s.func.sig_index == 1);
 
     printf("s=%p\n", this);
-    printf("start=%p:%s\n", this->start, this->start != NULL ? this->start : NULL );
-    printf("length=0x%lx\n", this->length);
+    printf("s=%p:%s\n", &this->s, this->s.length() != 0 ? this->s.c_str() : "Empty" );
+    printf("length=0x%lx\n", this->s.length());
     printf("tc.v=0x%x\n", this->tc.v);
     printf("tc.w=0x%x\n", this->tc.w);
     printf("func.ptr=%p\n", this->func.ptr);

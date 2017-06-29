@@ -19,12 +19,10 @@ wast2wasm=$(binDir)/wast2wasm
 wasm2wast=$(binDir)/wasm2wast
 wasm-link=$(binDir)/wasm-link
 
-CFLAGS_Wno=#-Wno-padded -Werror -Wno-format-pedantic -Wno-nested-anon-types -Wno-c++98-compat -Wno-c++98-compat-pedantic
-
 CFLAGS_Wno=-Wno-padded -Wno-format-pedantic -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-c99-extensions
 
 CC=clang
-CFLAGS=-O0 -g --std=c++14 -Weverything $(CFLAGS_Wno) $(incDir) -DDBG=$(_DBG)
+CFLAGS=-O0 -g --std=c++14 -Weverything -Werror $(CFLAGS_Wno) $(incDir) -DDBG=$(_DBG)
 
 OD=objdump
 ODFLAGS=-S -M x86_64,intel

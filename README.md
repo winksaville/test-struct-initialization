@@ -1,5 +1,15 @@
 # Test structure initialization
 
+Test structure initialization as [initialization is bonkers](https://blog.tartanllama.xyz/c++/2017/01/20/initialization-is-bonkers/),
+and the bottom line is *initialize your variables*!
+
+As it turns out based on my experiments this rule is good and the programmer should have a
+default constructor. But for `struct`'s where all fields are public, none of these
+fields have default initializers and there are no virtual methods. Basically they are data
+bags. Then it looks like the best approach is to let the compiler create the default
+constructor and destructors. This will allow the use of
+[aggregrate initialization](http://en.cppreference.com/w/cpp/language/aggregate_initialization).
+
 # Prerequistes
 - clang
 - make
